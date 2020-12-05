@@ -1,0 +1,126 @@
+<?php
+    include_once "dbh.php";
+    class Employee extends Dbh{
+        // Insertion method 
+        public function insertEmployee($table, $fields){
+            // "INSERT INTO table_name (, , ) VALUES ('','')";
+            $sql = "";
+            $sql .="INSERT INTO " . $table;
+            $sql .= " (".implode(",", array_keys($fields)).") VALUES ";
+            $sql .= "('".implode("','", array_values($fields))."')";
+            // Execute the query
+            $query = $this->connect()->query($sql);
+            if($query){
+                return true;
+            }
+        }
+        // Method to Fetching data from the database
+        public function viewEmployee($table){
+            // Writing the query
+            $sql = "SELECT * FROM " . $table;
+            $array = array();
+            // Query execution
+            $query = $this->connect()->query($sql);
+            while($row = mysqli_fetch_assoc($query)){
+                $array[] = $row;
+            }
+            return $array;
+        }
+        // Method to edit data 
+        public function selectEmployee($table,$where){
+            $sql = "";
+            $condition = "";
+            foreach($where as $key => $value){
+                // id = '5' AND FirstName = 'somename'
+                // Concatenate the condition to dynamically generate id when edit button is clicked
+                $condition .= $key . "='" . $value . "' AND ";
+            }
+            // Remove the last 5 characters from the condition
+            $condition = substr($condition, 0, -5);
+            // SELECT query
+            $sql .= "SELECT * FROM " .$table. " WHERE " . $condition;
+            // Execute SELECT query
+            $query = $this->connect()->query($sql);
+            $row = mysqli_fetch_array($query);
+            return $row;           
+        }
+        // Method to update data
+        public function updateEmployee($table, $where, $fields){
+            $sql = "";
+            $condition = "";
+            foreach($where as $key => $value){
+                // id = '5' AND FirstName = 'somename'
+                // Concatenate the condition to dynamically generate id when edit button is clicked
+                $condition .= $key . "='" . $value . "' AND ";
+            }
+            $condition = substr($condition, 0, -5);
+            foreach($fields as $key => $value){
+                // UPDATE table SET FirstName = '', LastName = '' WHERE id = '';
+                $sql .= $key . "='" . $value . "', ";
+            }
+            // Remove extra , and space from the sql query above
+            $sql = substr($sql, 0, -2);
+            // Full/concatenated query to be executed
+            $sql = "UPDATE " . $table . " SET " . $sql . " WHERE " . $condition;
+            // Execute the query
+            if($query = $this->connect()->query($sql)){
+                return true;
+            }
+        }
+        // Deletion method
+        public function deleteEmployee($table, $where){
+            $sql = "";
+            $condition = "";
+            foreach($where as $key => $value){
+                $condition .= $key . "='" . $value . "' AND ";
+            }
+            $condition = substr($condition, 0, -5);
+            $sql = "DELETE FROM " . $table . " WHERE " . $condition;
+            if($query = $this->connect()->query($sql)){
+                return true;
+            }
+        }
+    }
+
+
+    $obj = new Employee();
+
+    // Handle the save button for form submission
+    if(isset($_POST["save"])){
+        $myArray = array(
+            "FirstName" => $_POST["FirstName"],
+            "LastName" => $_POST["LastName"],
+            "Phone" => $_POST["Phone"],
+            "Job" => $_POST["Job"],
+            "Salary" => $_POST["Salary"]
+        );
+        // Call the insertion method to add record to the database
+        if($obj->insertEmployee("Employee", $myArray)){
+            header("location: ../payroll.php?msg=Insertion was successfull!");
+        };
+    }
+    // Handle the edit button for record editing
+    if(isset($_POST["edit"])){
+        $id = $_POST["id"];
+        $where = array("Employee_ID" => $id);
+        $myArray = array(
+            "FirstName" => $_POST["FirstName"],
+            "LastName" => $_POST["LastName"],
+            "Phone" => $_POST["Phone"],
+            "Job" => $_POST["Job"],
+            "Salary" => $_POST["Salary"]
+        );
+        if($obj->updateEmployee("Employee", $where, $myArray)){
+            header("location: ../payroll.php?msg=Updated Successfully!");
+        }
+    }
+
+    // Check if delete button was triggered
+    if(isset($_GET["delete"])){
+        $id = $_GET["id"] ?? null;
+        $where = array("Employee_ID" => $id);
+        if($obj->deleteEmployee("Employee", $where)){
+            header("location: ../payroll.php?msg=Record deleted successfully!");
+        }
+    }
+?>
