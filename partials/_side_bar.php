@@ -38,7 +38,7 @@
           </div>
           <div class="sidebar__link">
             <i class="fa fa-cutlery" aria-hidden="true"></i>
-            <a href="feedconsumption.php">Consumption</a>
+            <a href="feedConsumption.php">Consumption</a>
           </div>
           <h2>PAYROLL</h2>
           <div class="sidebar__link">
