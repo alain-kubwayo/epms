@@ -1,5 +1,5 @@
 <?php
-include 'includes/dbh.php';
+include 'includes/database.php';
 include 'includes/action.php';
 ?>
 <!DOCTYPE html>
@@ -23,8 +23,8 @@ include 'includes/action.php';
                     </thead>
                     <tbody>
                     <?php
-                        // calling viewEmployee method
-                        $myrow = $obj->viewEmployee("Employee");
+                        // calling viewMethod
+                        $myrow = $employeeObject->viewMethod("Employee");
                         foreach($myrow as $row){
                             // breaking point
                             ?>
@@ -52,8 +52,8 @@ include 'includes/action.php';
                         // Get the Employee_ID for the employee record to be edited
                         $id = $_GET["id"] ?? null;
                         $where = array("Employee_ID" => $id);
-                        // Call the selectEmployee method that displays the record to be edited
-                        $row = $obj->selectEmployee("Employee", $where);
+                        // Call the selectMethod() method that displays the record to be edited
+                        $row = $employeeObject->selectMethod("Employee", $where);
                         ?>
                             <form action="includes/action.php" method="post">
                                 <div class="input-group">
