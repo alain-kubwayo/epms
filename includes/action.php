@@ -1,8 +1,8 @@
 <?php
-    include_once "dbh.php";
-    class Employee extends Dbh{
+    include_once "database.php";
+    class CrudOperation extends Database{
         // Insertion method 
-        public function insertEmployee($table, $fields){
+        public function insertionMethod($table, $fields){
             // "INSERT INTO table_name (, , ) VALUES ('','')";
             $sql = "";
             $sql .="INSERT INTO " . $table;
@@ -15,7 +15,7 @@
             }
         }
         // Method to Fetching data from the database
-        public function viewEmployee($table){
+        public function viewMethod($table){
             // Writing the query
             $sql = "SELECT * FROM " . $table;
             $array = array();
@@ -27,7 +27,7 @@
             return $array;
         }
         // Method to edit data 
-        public function selectEmployee($table,$where){
+        public function selectMethod($table,$where){
             $sql = "";
             $condition = "";
             foreach($where as $key => $value){
@@ -45,7 +45,7 @@
             return $row;           
         }
         // Method to update data
-        public function updateEmployee($table, $where, $fields){
+        public function updateMethod($table, $where, $fields){
             $sql = "";
             $condition = "";
             foreach($where as $key => $value){
@@ -68,7 +68,7 @@
             }
         }
         // Deletion method
-        public function deleteEmployee($table, $where){
+        public function deleteMethod($table, $where){
             $sql = "";
             $condition = "";
             foreach($where as $key => $value){
@@ -83,7 +83,7 @@
     }
 
 
-    $obj = new Employee();
+    $employeeObject = new CrudOperation();
 
     // Handle the save button for form submission
     if(isset($_POST["save"])){
@@ -95,7 +95,7 @@
             "Salary" => $_POST["Salary"]
         );
         // Call the insertion method to add record to the database
-        if($obj->insertEmployee("Employee", $myArray)){
+        if($employeeObject->insertionMethod("Employee", $myArray)){
             header("location: ../payroll.php?msg=Insertion was successfull!");
         };
     }
@@ -110,7 +110,7 @@
             "Job" => $_POST["Job"],
             "Salary" => $_POST["Salary"]
         );
-        if($obj->updateEmployee("Employee", $where, $myArray)){
+        if($employeeObject->updateMethod("Employee", $where, $myArray)){
             header("location: ../payroll.php?msg=Updated Successfully!");
         }
     }
@@ -119,8 +119,51 @@
     if(isset($_GET["delete"])){
         $id = $_GET["id"] ?? null;
         $where = array("Employee_ID" => $id);
-        if($obj->deleteEmployee("Employee", $where)){
+        if($employeeObject->deleteMethod("Employee", $where)){
             header("location: ../payroll.php?msg=Record deleted successfully!");
+        }
+    }
+
+    // FEED CONSUMPTION
+
+    // New object to call methods on FeedConsumption table
+    $feedConsumptionObject = new CrudOperation();
+
+    if(isset($_POST["feedconssave"])){
+        $foreignID = $_POST["foreignEmployeeID"];
+        // echo $foreignID;
+        $myArray = array(
+            "ConsDate" => $_POST["ConsDate"],
+            "Quantity" => $_POST["Quantity"],
+            "Price" => $_POST["Price"],
+            "Employee" => $foreignID
+        );
+        // Call the insertion method to add record to the database
+        if($feedConsumptionObject->insertionMethod("FeedConsumption", $myArray)){
+            header("location: ../feedConsumption.php?msg=Insertion was successfull!");
+        };
+    }
+
+    // Handle the edit button for record editing
+    if(isset($_POST["feedconsedit"])){
+        $id = $_POST["id"];
+        $where = array("FeedConsumption_ID" => $id);
+        $myArray = array(
+            "ConsDate" => $_POST["ConsDate"],
+            "Quantity" => $_POST["Quantity"],
+            "Price" => $_POST["Price"],
+            "Employee" => $_POST["Employee"]
+        );
+        if($feedConsumptionObject->updateMethod("FeedConsumption", $where, $myArray)){
+            header("location: ../feedConsumption.php?msg=Updated Successfully!");
+        }
+    }
+    // Check if delete button was triggered
+    if(isset($_GET["feedconsdelete"])){
+        $id = $_GET["id"] ?? null;
+        $where = array("FeedConsumption_ID" => $id);
+        if($feedConsumptionObject->deleteMethod("FeedConsumption", $where)){
+            header("location: ../feedConsumption.php?msg=Record deleted successfully!");
         }
     }
 ?>
