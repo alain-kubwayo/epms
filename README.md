@@ -14,7 +14,6 @@ EPMS is a management system developed for a startup poultry farm business called
 5. PHP
 
 ## Implemented Functionalities
-
 Running EPMS in your local environment
 1. Import the database using the SQL file in the SQL folder.
 2. Host the repository on your local server.
