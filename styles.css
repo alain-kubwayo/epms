@@ -459,7 +459,18 @@
       border-radius: 5px;
       border: 1px solid #333;
   }
-  
+  select{
+    height: 45px;
+    width: 96%;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #333;
+  }
+
+  .selectoptions{
+    margin: 10px 0;
+  }
   .btn{
       padding: 10px;
       font-size: 15px;
