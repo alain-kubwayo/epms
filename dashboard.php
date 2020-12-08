@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <!-- head -->
@@ -8,6 +11,9 @@
         <?php include "{$_SERVER['DOCUMENT_ROOT']}/epms/partials/_top_navbar.php";?>
         <main>
             <div class="main__container">
+                <?php
+                    echo '<h3 class="welcome">Welcome ' . $_SESSION["Username"] . '</h3>';
+                ?>
                 
             </div>
         </main>
