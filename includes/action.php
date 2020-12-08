@@ -130,12 +130,13 @@
     $feedConsumptionObject = new CrudOperation();
 
     if(isset($_POST["feedconssave"])){
-        $foreignID = $_POST["foreignEmployeeID"];
-        // echo $foreignID;
+        $foreignID = $_POST["Employee"];
+        // $assignedEmp = $_POST["Employee"];
         $myArray = array(
             "ConsDate" => $_POST["ConsDate"],
             "Quantity" => $_POST["Quantity"],
             "Price" => $_POST["Price"],
+            // "Employee" => $foreignID
             "Employee" => $foreignID
         );
         // Call the insertion method to add record to the database
