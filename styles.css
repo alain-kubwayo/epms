@@ -506,8 +506,7 @@
       border-radius: 3px;
       background: #e65061;
   }
-  /** END OF TABLE STYLING */
-  
+
   @media only screen and (max-width: 855px) {
     .main__cards {
       grid-template-columns: 1fr;
