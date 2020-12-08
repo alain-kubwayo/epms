@@ -113,9 +113,10 @@ include 'includes/action.php';
                                     <?php
                                         $myrow = $feedConsumptionObject->viewMethod("Employee");
                                         foreach($myrow as $row){
-                                            $foreignID = $_GET["Employee_ID"] ?? null;
+                                            $foreignID = $row["Employee_ID"];
+                                            // $assignedEmp = $row["FirstName"];
                                     ?>                                    
-                                        <option class="selectoptions" value=""><?php echo $row["FirstName"] ?></option>
+                                        <option class="selectoptions" value="<?php echo $foreignID; ?>"><?php echo $row["FirstName"] ?></option>
                                         <?php
                                         }
                                         ?>
