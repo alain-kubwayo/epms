@@ -119,5 +119,6 @@ include 'includes/action.php';
         <!-- sidebar nav -->
         <?php include "{$_SERVER['DOCUMENT_ROOT']}/epms/partials/_side_bar.php";?>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@ class Database{
     private $dbname;
 
     // Method to connecct to the database 'epms_db'
-    protected function connect(){
+    public function connect(){
         $this->servername = 'localhost';
         $this->username = 'root';
         $this->password = '';

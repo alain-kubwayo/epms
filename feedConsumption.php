@@ -31,8 +31,18 @@ include 'includes/action.php';
                                 <td><?php echo $row['ConsDate'];?></td>
                                 <td><?php echo $row['Quantity'];?></td>
                                 <td><?php echo $row['Price'];?></td>
-                                <td><?php echo $row['Employee'];?></td>
                                 <td>
+                                    <?php 
+                                        $employee = $row['Employee'];
+                                        $sql = "select FirstName, LastName from Employee, FeedConsumption where Employee.Employee_ID = $employee";
+                                        $query = new Database();
+                                        $result = $query->connect()->query($sql);
+                                        $result = mysqli_fetch_assoc($result);
+                                        // print_r($result);
+                                        echo $result['FirstName'].' '.$result['LastName'];
+                                    ?>
+                        </td>      
+                                        <td>
                                     <a class="edit_btn" href="feedConsumption.php?feedconsupdate=1&id=<?php echo $row["FeedConsumption_ID"]; ?>">Edit</a>
                                 </td>
                                 <td>
@@ -91,9 +101,6 @@ include 'includes/action.php';
                         ?>
                             <form action="includes/action.php" method="post">
                                 <div class="input-group">
-                                    <input type="hidden" name="foreignEmployeeID" value="">
-                                </div>
-                                <div class="input-group">
                                     <label for="">Date</label>
                                     <input type="date" name="ConsDate" value="">
                                 </div>
@@ -114,7 +121,6 @@ include 'includes/action.php';
                                         $myrow = $feedConsumptionObject->viewMethod("Employee");
                                         foreach($myrow as $row){
                                             $foreignID = $row["Employee_ID"];
-                                            // $assignedEmp = $row["FirstName"];
                                     ?>                                    
                                         <option class="selectoptions" value="<?php echo $foreignID; ?>"><?php echo $row["FirstName"] ?></option>
                                         <?php
@@ -135,5 +141,6 @@ include 'includes/action.php';
         <!-- sidebar nav -->
         <?php include "{$_SERVER['DOCUMENT_ROOT']}/epms/partials/_side_bar.php";?>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

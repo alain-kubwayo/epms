@@ -131,12 +131,10 @@
 
     if(isset($_POST["feedconssave"])){
         $foreignID = $_POST["Employee"];
-        // $assignedEmp = $_POST["Employee"];
         $myArray = array(
             "ConsDate" => $_POST["ConsDate"],
             "Quantity" => $_POST["Quantity"],
             "Price" => $_POST["Price"],
-            // "Employee" => $foreignID
             "Employee" => $foreignID
         );
         // Call the insertion method to add record to the database
@@ -156,7 +154,7 @@
             "Employee" => $_POST["Employee"]
         );
         if($feedConsumptionObject->updateMethod("FeedConsumption", $where, $myArray)){
-            header("location: ../feedConsumption.php?msg=Updated Successfully!");
+            // header("location: ../feedConsumption.php?msg=Updated Successfully!");
         }
     }
     // Check if delete button was triggered
@@ -167,4 +165,216 @@
             header("location: ../feedConsumption.php?msg=Record deleted successfully!");
         }
     }
+
+    // FEED PURCHASE
+
+    // Create object for feed purchase
+    $feedPurchaseObject = new CrudOperation();
+
+    // Handle the save button for form submission
+    if(isset($_POST["feedpurchsave"])){
+        $myArray = array(
+            "Date" => $_POST["Date"],
+            "Quantity" => $_POST["Quantity"],
+            "Price" => $_POST["Price"]
+        );
+        // Call the insertion method to add record to the database
+        if($feedPurchaseObject->insertionMethod("FeedPurchase", $myArray)){
+            header("location: ../feedPurchase.php?msg=Insertion was successfull!");
+        };
+    }
+    // Handle the edit button for record editing
+    if(isset($_POST["feedpurchedit"])){
+        $id = $_POST["id"];
+        $where = array("FeedPurchase_ID" => $id);
+        $myArray = array(
+            "Date" => $_POST["Date"],
+            "Quantity" => $_POST["Quantity"],
+            "Price" => $_POST["Price"]
+        );
+        if($feedPurchaseObject->updateMethod("FeedPurchase", $where, $myArray)){
+            header("location: ../feedPurchase.php?msg=Updated Successfully!");
+        }
+    }
+
+    // Check if delete button was triggered
+    if(isset($_GET["feedpurchdelete"])){
+        $id = $_GET["id"] ?? null;
+        $where = array("FeedPurchase_ID" => $id);
+        if($feedPurchaseObject->deleteMethod("FeedPurchase", $where)){
+            header("location: ../feedPurchase.php?msg=Record deleted successfully!");
+        }
+    }
+
+    // BIRDS PURCHASE
+
+    // Create object for feed purchase
+    $birdsPurchaseObject = new CrudOperation();
+
+    // Handle the save button for form submission
+    if(isset($_POST["birdspurchsave"])){
+        $myArray = array(
+            "Date" => $_POST["Date"],
+            "NumberOfBirds" => $_POST["NumberOfBirds"],
+            "Price" => $_POST["Price"]
+        );
+        // Call the insertion method to add record to the database
+        if($birdsPurchaseObject->insertionMethod("BirdsPurchase", $myArray)){
+            header("location: ../birdsPurchase.php?msg=Insertion was successfull!");
+        };
+    }
+    // Handle the edit button for record editing
+    if(isset($_POST["birdspurchedit"])){
+        $id = $_POST["id"];
+        $where = array("BirdsPurchase_ID" => $id);
+        $myArray = array(
+            "Date" => $_POST["Date"],
+            "NumberOfBirds" => $_POST["NumberOfBirds"],
+            "Price" => $_POST["Price"]
+        );
+        if($birdsPurchaseObject->updateMethod("BirdsPurchase", $where, $myArray)){
+            header("location: ../birdsPurchase.php?msg=Updated Successfully!");
+        }
+    }
+
+    // Check if delete button was triggered
+    if(isset($_GET["birdspurchdelete"])){
+        $id = $_GET["id"] ?? null;
+        $where = array("BirdsPurchase_ID" => $id);
+        if($birdsPurchaseObject->deleteMethod("BirdsPurchase", $where)){
+            header("location: ../birdsPurchase.php?msg=Record deleted successfully!");
+        }
+    }
+
+    // EGG SALES
+
+    // Create object for egg sales
+    $salesObject = new CrudOperation();
+
+    // Handle the save button for form submission
+    if(isset($_POST["salessave"])){
+        $myArray = array(
+            "Date" => $_POST["Date"],
+            "NumberOfEggs" => $_POST["NumberOfEggs"],
+            "Revenue" => $_POST["Revenue"]
+        );
+        // Call the insertion method to add record to the database
+        if($salesObject->insertionMethod("Sales", $myArray)){
+            header("location: ../sales.php?msg=Insertion was successfull!");
+        };
+    }
+    // Handle the edit button for record editing
+    if(isset($_POST["salesedit"])){
+        $id = $_POST["id"];
+        $where = array("Sales_ID" => $id);
+        $myArray = array(
+            "Date" => $_POST["Date"],
+            "NumberOfEggs" => $_POST["NumberOfEggs"],
+            "Revenue" => $_POST["Revenue"]
+        );
+        if($salesObject->updateMethod("Sales", $where, $myArray)){
+            header("location: ../sales.php?msg=Updated Successfully!");
+        }
+    }
+
+    // Check if delete button was triggered
+    if(isset($_GET["salesdelete"])){
+        $id = $_GET["id"] ?? null;
+        $where = array("Sales_ID" => $id);
+        if($birdsPurchaseObject->deleteMethod("Sales", $where)){
+            header("location: ../sales.php?msg=Record deleted successfully!");
+        }
+    }
+
+    // EGG PRODUCTION
+
+    // Create object for egg production
+    $productionObject = new CrudOperation();
+
+    // Handle the save button for form submission
+    if(isset($_POST["productionsave"])){
+        $myArray = array(
+            "Date" => $_POST["Date"],
+            "NumberOfEggs" => $_POST["NumberOfEggs"]
+        );
+        // Call the insertion method to add record to the database
+        if($productionObject->insertionMethod("Production", $myArray)){
+            header("location: ../production.php?msg=Insertion was successfull!");
+        };
+    }
+    // Handle the edit button for record editing
+    if(isset($_POST["productionedit"])){
+        $id = $_POST["id"];
+        $where = array("Production_ID" => $id);
+        $myArray = array(
+            "Date" => $_POST["Date"],
+            "NumberOfEggs" => $_POST["NumberOfEggs"]
+        );
+        if($productionObject->updateMethod("Production", $where, $myArray)){
+            header("location: ../production.php?msg=Updated Successfully!");
+        }
+    }
+
+    // Check if delete button was triggered
+    if(isset($_GET["productiondelete"])){
+        $id = $_GET["id"] ?? null;
+        $where = array("Production_ID" => $id);
+        if($productionObject->deleteMethod("Production", $where)){
+            header("location: ../production.php?msg=Record deleted successfully!");
+        }
+    }
+
+    // INSIGHTS
+
+    // Returning the total number of birds purchased
+    $databaseObject = new Database();
+    $query = "SELECT SUM(NumberOfBirds) AS sum FROM `BirdsPurchase`"; 
+    $result = $databaseObject->connect()->query($query);
+    while($row = mysqli_fetch_assoc($result)){
+        $totalBirdsPurchased = $row['sum'];
+    };
+
+    // Returning the total number of wages
+    $query = "SELECT SUM(Salary) AS sum FROM `Employee`";
+    $result = $databaseObject->connect()->query($query);
+    while($row = mysqli_fetch_assoc($result)){
+        $totalWages = $row['sum'];
+    }
+
+    // Returning total revenue
+    $query = "SELECT SUM(Revenue) AS sum FROM `Sales`";
+    $result = $databaseObject->connect()->query($query);
+    while($row = mysqli_fetch_assoc($result)){
+        $sales = $row['sum'];
+    }
+
+    // Returning remaining feed in the stock
+    $query = "SELECT SUM(Quantity) AS sum FROM `FeedPurchase`";
+    $result = $databaseObject->connect()->query($query);
+    while($row = mysqli_fetch_assoc($result)){
+        $totalFeedPurchased = $row['sum'];
+    }
+
+    $query = "SELECT SUM(Quantity) AS sum FROM `FeedConsumption`";
+    $result = $databaseObject->connect()->query($query);
+    while($row = mysqli_fetch_assoc($result)){
+        $totalFeedConsumed = $row['sum'];
+    }
+    $remainingFeed = $totalFeedPurchased - $totalFeedConsumed;
+
+    // Returning number of eggs available for sale
+    $query = "SELECT SUM(NumberOfEggs) AS sum FROM `Production`";
+    $result = $databaseObject->connect()->query($query);
+    while($row = mysqli_fetch_assoc($result)){
+        $totalEggsProduced = $row['sum'];
+    }
+
+    $query = "SELECT SUM(NumberOfEggs) AS sum FROM `Sales`";
+    $result = $databaseObject->connect()->query($query);
+    while($row = mysqli_fetch_assoc($result)){
+        $totalEggsSold = $row['sum'];
+    }
+    $remainingEggs = $totalEggsProduced - $totalEggsSold;
+
+
 ?>

@@ -1,5 +1,9 @@
 <?php
     session_start();
+    include 'includes/database.php';
+    include 'includes/action.php';
+
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,14 +15,133 @@
         <?php include "{$_SERVER['DOCUMENT_ROOT']}/epms/partials/_top_navbar.php";?>
         <main>
             <div class="main__container">
-                <?php
-                    echo '<h3 class="welcome">Welcome ' . $_SESSION["Username"] . '</h3>';
-                ?>
-                
+                <!-- dashboard title and greetings -->
+                <div class="main__title">
+                    <!-- <img src="images/hello.svg" alt=""> -->
+                    <div class="main__greeting">
+                        <h1>Hello<?php echo ', ' . $_SESSION["Username"] . '.';?></h1>
+                        <p>Welcome to your dashboard</p>
+                    </div>
+                </div>
+                <!-- dashboard title ends here -->
+
+                <!-- Cards for displaying CRUD insights -->
+                <div class="main__cards">
+                    <div class="card">
+                        <div class="card_inner">
+                            <p class="text-primary-p">Birds Purchased</p>
+                            <!-- <span class="font-bold text-title">578</span> -->
+                            <span class="font-bold text-title">
+                                <?php
+                                    echo $totalBirdsPurchased;
+                                ?>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card_inner">
+                            <p class="text-primary-p">No. of Employees</p>
+                            <!-- <span class="font-bold text-title">578</span> -->
+                            <span class="font-bold text-title">
+                                <?php
+                                    echo $totalBirdsPurchased;
+                                ?>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card_inner">
+                            <p class="text-primary-p">Birds Purchased</p>
+                            <!-- <span class="font-bold text-title">578</span> -->
+                            <span class="font-bold text-title">
+                                <?php
+                                    echo $totalBirdsPurchased;
+                                ?>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card_inner">
+                            <p class="text-primary-p">Birds Purchased</p>
+                            <!-- <span class="font-bold text-title">578</span> -->
+                            <span class="font-bold text-title">
+                                <?php
+                                    echo $totalBirdsPurchased;
+                                ?>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of cards for displaying CRUD insights -->
+                <!-- Start of charts for displaying CRUD insights -->
+                <div class="charts">
+                    <div class="charts__left">
+                        <div class="charts__left__title">
+                            <div>
+                                <h1>Daily Reports</h1>
+                                <p>Cupertino, California, USA</p>
+                            </div>
+                            <i class="fa fa-usd" aria-hidden="true"></i>
+                        </div>
+                        <div id="apex1"></div>
+                    </div>
+
+                    <div class="charts__right">
+                        <div class="charts__right__title">
+                            <div>
+                                <h1>Stats</h1>
+                                <!-- <p>Kigali, Rwanda</p> -->
+                            </div>
+                            <i class="fa fa-usd" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="charts__right__cards">
+                            <div class="card1">
+                            <h1>Total Wages</h1>
+                            <p><?php echo 'GHC '. $totalWages; ?></p>
+                        </div>
+
+                        <div class="card2">
+                            <h1>Sales</h1>
+                            <p><?php echo 'GHC '. $sales; ?></p>
+                        </div>
+
+                        <div class="card3">
+                            <h1>Remaining Feed</h1>
+                            <?php
+                                if($remainingFeed > 0){ ?>
+                                    <p><?php echo $remainingFeed . ' Kg'; ?></p>
+                                <?php
+                                }else{?>
+                                    <p style="color: red;"><?php echo 'Please refill the feed stock!'; ?></p>
+                                <?php
+                                }
+                                ?>
+                        </div>
+
+                        <div class="card3">
+                            <h1>Eggs Left</h1>
+                            <?php
+                                if($remainingEggs > 0){ ?>
+                                    <p><?php echo $remainingEggs; ?></p>
+                                <?php
+                                }else{?>
+                                    <p style="color: red;"><?php echo 'Nothing to sell!'; ?></p>
+                                <?php
+                                }
+                                ?>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of charts for displaying CRUD insights -->
             </div>
         </main>
         <!-- sidebar nav -->
         <?php include "{$_SERVER['DOCUMENT_ROOT']}/epms/partials/_side_bar.php";?>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

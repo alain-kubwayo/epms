@@ -16,7 +16,7 @@
             <i class="fa fa-clock-o" aria-hidden="true"></i>
           </a> -->
           <a href="#">
-            <img width="30" src="img/avatar.svg" alt="" /> 
+            <img width="30" src="images/avatar.svg" alt="" /> 
             <!-- <i class="fa fa-user-circle-o" aria-hidden="true"></i> -->
           </a>
         </div>

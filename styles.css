@@ -72,7 +72,8 @@
   }
   
   .navbar {
-    background: #fff;
+    /* background: #fff; */
+    background: #e4e6eb;
     grid-area: nav;
     height: 60px;
     display: flex;
@@ -278,7 +279,6 @@
     text-align: center;
     padding: 25px;
     border-radius: 5px;
-    font-size: 14px;
   }
   
   .card2 {
@@ -287,7 +287,6 @@
     text-align: center;
     padding: 25px;
     border-radius: 5px;
-    font-size: 14px;
   }
   
   .card3 {
@@ -296,7 +295,6 @@
     text-align: center;
     padding: 25px;
     border-radius: 5px;
-    font-size: 14px;
   }
   
   .card4 {
@@ -305,13 +303,20 @@
     text-align: center;
     padding: 25px;
     border-radius: 5px;
-    font-size: 14px;
+  }
+  .card1 p, .card2 p, .card3 p, .card4 p{
+    margin-top: 5px;
+    font-size: 17px;
+  }
+
+  .card1 h1, .card2 h1, .card3 h1, .card4 h1{
+    font-size: 20px;
   }
   
   /*  SIDEBAR STARTS HERE  */
   
   #sidebar {
-    background: #020509;
+    background: #0a3f49;
     grid-area: sidebar;
     overflow-y: auto;
     padding: 20px;

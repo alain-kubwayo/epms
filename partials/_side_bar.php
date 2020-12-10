@@ -20,21 +20,21 @@
           <h2>EGGS</h2>
           <div class="sidebar__link">
             <i class="fa fa-product-hunt" aria-hidden="true"></i>
-            <a href="#">Production</a>
+            <a href="production.php">Production</a>
           </div>
           <div class="sidebar__link">
             <i class="fa fa-line-chart" aria-hidden="true"></i>
-            <a href="#">Sales</a>
+            <a href="sales.php">Sales</a>
           </div>
           <h2>BIRDS</h2>
           <div class="sidebar__link">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-            <a href="#">Purchase</a>
+            <a href="birdsPurchase.php">Purchase</a>
           </div>
           <h2>FEED</h2>
           <div class="sidebar__link">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-            <a href="#">Purchase</a>
+            <a href="feedPurchase.php">Purchase</a>
           </div>
           <div class="sidebar__link">
             <i class="fa fa-cutlery" aria-hidden="true"></i>
