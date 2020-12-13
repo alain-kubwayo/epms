@@ -512,6 +512,13 @@
       background: #e65061;
   }
 
+  /** STYLING DIVISION CONTAINING PIE CHARTS*/
+  #piechart_3d {
+    width: 900px;
+    height: 500px;
+  }
+
+
   @media only screen and (max-width: 855px) {
     .main__cards {
       grid-template-columns: 1fr;

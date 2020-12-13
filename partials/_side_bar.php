@@ -11,7 +11,7 @@
           ></i>
         </div>
 
-        <div class="sidebar__menu">
+        <div class="sidebar__menu" id="sidebarDiv">
           <div class="sidebar__link active_menu_link">
             <i class="fa fa-home"></i>
             <a href="dashboard.php">Dashboard</a>

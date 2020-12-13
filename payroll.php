@@ -60,10 +60,11 @@ include 'includes/action.php';
                         // Call the selectMethod() method that displays the record to be edited
                         $row = $employeeObject->selectMethod("Employee", $where);
                         ?>
-                            <form action="includes/action.php" method="post">
+                            <form action="includes/action.php" method="post" onsubmit="return payrollFormValidate()">
                                 <div class="input-group">
                                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                                 </div>
+                                
                                 <div class="input-group">
                                     <label for="">First Name</label>
                                     <input type="text" name="FirstName" value="<?php echo $row["FirstName"]; ?>">
@@ -82,7 +83,7 @@ include 'includes/action.php';
                                 </div>
                                 <div class="input-group">
                                     <label for="">Salary</label>
-                                    <input type="text" name="Salary" value="<?php echo $row["Salary"]; ?>">
+                                    <input type="number" name="Salary" value="<?php echo $row["Salary"]; ?>">
                                 </div>
                                 <div class="input-group">
                                     <button type="submit" name="edit" class="btn" value="">Update</button>
@@ -91,26 +92,27 @@ include 'includes/action.php';
                         <?php
                     }else{
                         ?>
-                            <form action="includes/action.php" method="post">
+                            <form id="payrollForm" action="includes/action.php" method="post">
+                                <div class="my-div-error" id="error"></div>
                                 <div class="input-group">
                                     <label for="">First Name</label>
-                                    <input type="text" name="FirstName" value="">
+                                    <input type="text" id="FirstName" name="FirstName" value="">
                                 </div>
                                 <div class="input-group">
                                     <label for="">Last Name</label>
-                                    <input type="text" name="LastName" value="">
+                                    <input type="text" id="LastName" name="LastName" value="">
                                 </div>
                                 <div class="input-group">
                                     <label for="">Phone</label>
-                                    <input type="text" name="Phone" value="">
+                                    <input type="text"  id="Phone" name="Phone" value="">
                                 </div>
                                 <div class="input-group">
                                     <label for="">Job</label>
-                                    <input type="text" name="Job" value="">
+                                    <input type="text"  id="Job" name="Job" value="">
                                 </div>
                                 <div class="input-group">
                                     <label for="">Salary</label>
-                                    <input type="text" name="Salary" value="">
+                                    <input type="number" id="Salary" name="Salary" value="">
                                 </div>
                                 <div class="input-group">
                                     <button type="submit" name="save" class="btn">Save</button>

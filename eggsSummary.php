@@ -17,7 +17,7 @@
                 <div class="main__title">
                     <!-- <img src="images/hello.svg" alt=""> -->
                     <div class="main__greeting">
-                        <h1>Feed Stock Summary</h1>
+                        <h1>Eggs Summary</h1>
                     </div>
                 </div>
                 <!-- dashboard title ends here -->
@@ -41,15 +41,18 @@
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-                ['Feed', 'Amount'],
+                ['Eggs', 'Number'],
                 <?php
-                    echo "['Feed Remaining', " . $remainingFeed . "],";
-                    echo "['Feed Consumed', " . $totalFeedConsumed . "],";
+
+                    echo "['Eggs Remaining', " . $remainingEggs . "],";
+
+                    echo "['Eggs Sold', " . $totalEggsSold . "],";
+          
                 ?>
             ]);
 
             var options = {
-                title: 'Feed Consumed vs. Feed Remaining',
+                title: 'Eggs Sold vs. Eggs Remainining',
                 is3D: true,
             };
 

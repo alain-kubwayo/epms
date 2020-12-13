@@ -54,17 +54,18 @@ include 'includes/action.php';
                         // Call the select method that displays the record to be edited
                         $row = $birdsPurchaseObject->selectMethod("BirdsMortality", $where);
                         ?>
-                            <form action="includes/action.php" method="post">
+                            <div id="error" style="text-align: center; color:  #e65061;"></div>
+                            <form id="form" action="includes/action.php" method="post">
                                 <div class="input-group">
                                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                                 </div>
                                 <div class="input-group">
                                     <label for="">Date</label>
-                                    <input type="date" name="Date" value="<?php echo $row["Date"]; ?>">
+                                    <input id="Date" type="date" name="Date" value="<?php echo $row["Date"]; ?>">
                                 </div>
                                 <div class="input-group">
                                     <label for="">Number of Deaths</label>
-                                    <input type="number" step="any" name="Deaths" value="<?php echo $row["Deaths"]; ?>">
+                                    <input id="Deaths" type="number" step="any" name="Deaths" value="<?php echo $row["Deaths"]; ?>">
                                 </div>
                                 <div class="input-group">
                                     <button type="submit" name="birdsmortedit" class="btn" value="">Update</button>
@@ -73,14 +74,15 @@ include 'includes/action.php';
                         <?php
                     }else{
                         ?>
-                            <form action="includes/action.php" method="post">
+                            <div id="error" style="text-align: center; color:  #e65061;"></div>
+                            <form id="form" action="includes/action.php" method="post">
                                 <div class="input-group">
                                     <label for="">Date</label>
-                                    <input type="date" name="Date" value="">
+                                    <input id="Date" type="date" name="Date" value="">
                                 </div>
                                 <div class="input-group">
                                     <label for="">Number of Deaths</label>
-                                    <input type="number" step="any" name="Deaths" value="">
+                                    <input id="Deaths" type="number" step="any" name="Deaths" value="">
                                 </div>
                                 <div class="input-group">
                                     <button type="submit" name="birdsmortsave" class="btn">Save</button>

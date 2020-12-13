@@ -8,6 +8,9 @@
     include 'includes/database.php';
     include 'includes/action.php';
 
+    $sql = "SELECT * FROM Employee";
+    $res = $databaseObject->connect()->query($sql);
+
     
 ?>
 <!DOCTYPE html>
@@ -87,18 +90,18 @@
                         <div class="charts__left__title">
                             <div>
                                 <h1>Payroll Visualtion</h1>
-                                <p>Eggcellent Palace, Accra, GH</p>
+                                <p>Job titles and their respective salaries</p>
                             </div>
                             <i class="fa fa-money" aria-hidden="true"></i>
                         </div>
-                        <div id="apex1"></div>
+                        <div id="piechart_3d" style="width: 450px; height: 250px;"></div>
                     </div>
 
                     <div class="charts__right">
                         <div class="charts__right__title">
                             <div>
                                 <h1>Stats</h1>
-                                <p>Eggcellent Palace, Accra, GH</p>
+                                <p>Statistics of different categories</p>
                             </div>
                             <i class="fa fa-money" aria-hidden="true"></i>
                         </div>
@@ -147,7 +150,28 @@
         <!-- sidebar nav -->
         <?php include "{$_SERVER['DOCUMENT_ROOT']}/epms/partials/_side_bar.php";?>
     </div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Employee', 'Salary'],
+                <?php
+                    while($row=$res->fetch_assoc()){
+                        echo "['".$row['Job']."',".$row['Salary']."],";
+                    }
+                ?>   
+            ]);
+            var options = {
+                title: 'Titles and Salaries',
+                is3D: true,
+            };
 
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+            chart.draw(data, options);
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

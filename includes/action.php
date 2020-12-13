@@ -380,18 +380,20 @@
     }
 
     // Returning the mortality rate
+
     $query = "SELECT SUM(Deaths) AS sum FROM `BirdsMortality`";
     $result = $databaseObject->connect()->query($query);
     while($row = mysqli_fetch_assoc($result)){
         $totalDeaths = $row['sum'];
     }
+
     if($totalDeaths <= $totalNumberOfBirds){
         $mortalityRate = round($totalDeaths / $totalNumberOfBirds * 100 , 1);
         $totalNumberOfBirds = $totalNumberOfBirds - $totalDeaths;
     }else{
         $mortalityRate = 0;
-
     }
+    $remainingBirds = $totalNumberOfBirds - $totalDeaths;
     
     // Returning the total number of wages
     $query = "SELECT SUM(Salary) AS sum FROM `Employee`";
