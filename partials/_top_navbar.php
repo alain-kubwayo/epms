@@ -5,19 +5,11 @@
         <div class="navbar__left">
           <a href="#">Eggs</a>
           <a href="#">Birds</a>
-          <a href="#">Feed</a>
-          <a class="active_link" href="#">Payroll</a>
+          <a class="active_link" href="feedSummary.php">Feed</a>
         </div>
         <div class="navbar__right">
-          <!-- <a href="#">
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </a>
-          <a href="#">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-          </a> -->
-          <a href="#">
-            <img width="30" src="images/avatar.svg" alt="" /> 
-            <!-- <i class="fa fa-user-circle-o" aria-hidden="true"></i> -->
-          </a>
+          <!-- <a href="#"> -->
+            <h1 style="font-size: 15px; color: green; color: #2e4a66; margin-right: 10px;"><?php echo 'Logged in as ' . $_SESSION["Username"]; ?></h1>
+          <!-- </a> -->
         </div>
       </nav>

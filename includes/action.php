@@ -246,6 +246,44 @@
         }
     }
 
+    // BIRDS MORTALITY
+
+    // Create object for feed purchase
+    $birdsMortalityObject = new CrudOperation();
+
+    // Handle the save button for form submission
+    if(isset($_POST["birdsmortsave"])){
+        $myArray = array(
+            "Date" => $_POST["Date"],
+            "Deaths" => $_POST["Deaths"]
+        );
+        // Call the insertion method to add record to the database
+        if($birdsMortalityObject->insertionMethod("BirdsMortality", $myArray)){
+            header("location: ../birdsMortality.php?msg=Insertion was successfull!");
+        };
+    }
+    // Handle the edit button for record editing
+    if(isset($_POST["birdsmortedit"])){
+        $id = $_POST["id"];
+        $where = array("BirdsMortality_ID" => $id);
+        $myArray = array(
+            "Date" => $_POST["Date"],
+            "Deaths" => $_POST["Deaths"]
+        );
+        if($birdsMortalityObject->updateMethod("BirdsMortality", $where, $myArray)){
+            header("location: ../birdsMortality.php?msg=Updated Successfully!");
+        }
+    }
+
+    // Check if delete button was triggered
+    if(isset($_GET["birdsmortdelete"])){
+        $id = $_GET["id"] ?? null;
+        $where = array("BirdsMortality_ID" => $id);
+        if($birdsPurchaseObject->deleteMethod("BirdsMortality", $where)){
+            header("location: ../birdsMortality.php?msg=Record deleted successfully!");
+        }
+    }
+
     // EGG SALES
 
     // Create object for egg sales
@@ -331,9 +369,30 @@
     $query = "SELECT SUM(NumberOfBirds) AS sum FROM `BirdsPurchase`"; 
     $result = $databaseObject->connect()->query($query);
     while($row = mysqli_fetch_assoc($result)){
-        $totalBirdsPurchased = $row['sum'];
+        $totalNumberOfBirds = $row['sum'];
     };
 
+    // Returning the total number of eggs
+    $query = "SELECT SUM(NumberOfEggs) AS sum FROM `Production`";
+    $result = $databaseObject->connect()->query($query);
+    while($row = mysqli_fetch_assoc($result)){
+        $totalNumberOfEggs = $row['sum'];
+    }
+
+    // Returning the mortality rate
+    $query = "SELECT SUM(Deaths) AS sum FROM `BirdsMortality`";
+    $result = $databaseObject->connect()->query($query);
+    while($row = mysqli_fetch_assoc($result)){
+        $totalDeaths = $row['sum'];
+    }
+    if($totalDeaths <= $totalNumberOfBirds){
+        $mortalityRate = round($totalDeaths / $totalNumberOfBirds * 100 , 1);
+        $totalNumberOfBirds = $totalNumberOfBirds - $totalDeaths;
+    }else{
+        $mortalityRate = 0;
+
+    }
+    
     // Returning the total number of wages
     $query = "SELECT SUM(Salary) AS sum FROM `Employee`";
     $result = $databaseObject->connect()->query($query);
@@ -376,5 +435,11 @@
     }
     $remainingEggs = $totalEggsProduced - $totalEggsSold;
 
+    // Getting the total number of employees working in the farm
+    $query = "SELECT COUNT(*) AS sum FROM `Employee`";
+    $result = $databaseObject->connect()->query($query);
+    while($row = mysqli_fetch_assoc($result)){
+        $totalNumberOfEmployees = $row['sum'];
+    }
 
 ?>

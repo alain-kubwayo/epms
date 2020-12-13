@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['Username'])) {
+    header("Location: index.php");
+    exit();
+}
 include 'includes/database.php';
 include 'includes/action.php';
 ?>
@@ -41,8 +46,8 @@ include 'includes/action.php';
                                         // print_r($result);
                                         echo $result['FirstName'].' '.$result['LastName'];
                                     ?>
-                        </td>      
-                                        <td>
+                                </td>      
+                                <td>
                                     <a class="edit_btn" href="feedConsumption.php?feedconsupdate=1&id=<?php echo $row["FeedConsumption_ID"]; ?>">Edit</a>
                                 </td>
                                 <td>
@@ -85,8 +90,9 @@ include 'includes/action.php';
                                         <?php
                                             $myrow = $employeeObject->viewMethod("Employee");
                                             foreach($myrow as $row){
+                                                $foreignID = $row["Employee_ID"];
                                             ?>                                    
-                                            <option class="selectoptions" value=""><?php echo $row["FirstName"] ?></option>
+                                            <option class="selectoptions" value="<?php echo $foreignID; ?>"><?php echo $row["FirstName"] ?></option>
                                             <?php
                                             }
                                             ?>

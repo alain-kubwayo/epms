@@ -1,14 +1,7 @@
 <?php
-    
     session_start();
-    if (!isset($_SESSION['Username'])) {
-        header("Location: index.php");
-        exit();
-    }
     include 'includes/database.php';
     include 'includes/action.php';
-
-    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,8 +17,7 @@
                 <div class="main__title">
                     <!-- <img src="images/hello.svg" alt=""> -->
                     <div class="main__greeting">
-                        <h1>Hello<?php echo ', ' . $_SESSION["Username"] . '.';?></h1>
-                        <p>Welcome to your dashboard</p>
+                        <h1>Feed Stock Summary</h1>
                     </div>
                 </div>
                 <!-- dashboard title ends here -->
@@ -147,7 +139,6 @@
         <!-- sidebar nav -->
         <?php include "{$_SERVER['DOCUMENT_ROOT']}/epms/partials/_side_bar.php";?>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>

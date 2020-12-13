@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['Username'])) {
+    header("Location: index.php");
+    exit();
+}
 include 'includes/database.php';
 include 'includes/action.php';
 ?>

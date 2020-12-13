@@ -1,7 +1,6 @@
 <div id="sidebar">
         <div class="sidebar__title">
           <div class="sidebar__img">
-            <!-- <img src="logo.png" alt="logo" /> -->
             <h1>EPMS</h1>
           </div>
           <i
@@ -31,6 +30,10 @@
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
             <a href="birdsPurchase.php">Purchase</a>
           </div>
+          <div class="sidebar__link">
+            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+            <a href="birdsMortality.php">Mortality</a>
+          </div>
           <h2>FEED</h2>
           <div class="sidebar__link">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -47,7 +50,7 @@
           </div>
           <div class="sidebar__logout">
             <i class="fa fa-power-off"></i>
-            <a href="#">Log out</a>
+            <a href="logout.php">Log out</a>
           </div>
         </div>
       </div>
