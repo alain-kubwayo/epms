@@ -16,8 +16,19 @@ This web application was also deployed on on the popular public cloud computing 
 5. PHP
 
 ## Implemented Functionalities
-Running EPMS in your local environment
-1. Import the database using the SQL file in the SQL folder.
-2. Host the repository on your local server.
-3. Update database.php file to match your database credentials.
-4. Start page.
+
+* Admin can create, view, edit, and delete payroll records
+* Admin can create, view, edit, and delete records of eggs sold and eggs produced
+* Admin can create, view, edit, and delete records of birds purchased and birds dead
+* Admin can create, view, edit, and delete records of feed consumption and purchase
+* Admin can view the stock summary 
+
+## Running EPMS Locally
+The following steps go through how you can run EPMS management system in your local environment. Assuming you have some kind of local server like XAMPP installed on your machine, just follow the steps below.
+1. cd into htdocs (For Mac users you can run the following command from anywhere in your terminal: cd ~/.bitnami/stackman/machines/xampp/volumes/root/htdocs)
+2. Once in htdocs folder, clone this repository and git it a name of your choice. For instance the following command would create a folder called **epmsproject** inside htdocs folder with the project files: git clone https://github.com/alain-kubwayo/epms.git epmsproject
+3. With that out of the way, cd into epmsproject folder and navigate to sql folder to get the sql file to be imported in PHPMyAdmin 
+4. Then navigate to includes sub-directory in **epmsproject** directory and open **database.php** file and change the database credenials according to your database. 
+5. Finally, you can run the project in your browser by writing localhost:8080/epms or any port you have. This would take you to the homepage of the EPMS application.
+6. Congratulations! You have successfully managed to run EPMS web application. Have fun!
+
