@@ -45,7 +45,7 @@
             if(mysqli_num_rows($query)){
                 return true;
             }else{
-                $this->error = "Wrong Data";
+                $this->error = "<p>Wrong Data</p>";
             }
         }
     }
