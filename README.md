@@ -7,7 +7,7 @@ EPMS is a management system developed for a startup poultry farm business called
 * Sales (keeping track of sales record)
 
 ## AZURE Deployment
-To access EPMS web application online. Follow [this link](https://github.com/alain-kubwayo/)
+This web application was also deployed on on the popular public cloud computing platform called **Microsoft AZURE**. To access EPMS web application online. Follow [this link](https://github.com/alain-kubwayo/).
 
 ## Technologies Used
 1. HTML
