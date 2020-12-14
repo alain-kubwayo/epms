@@ -17,6 +17,14 @@ include 'includes/action.php';
         <?php include "{$_SERVER['DOCUMENT_ROOT']}/epms/partials/_top_navbar.php";?>
         <main>
             <div class="main__container">
+                <?php if(isset($_SESSION['msg'])): ?>
+                    <div class="msg">
+                        <?php 
+                            echo $_SESSION['msg'];
+                            unset($_SESSION['msg']);
+                        ?>
+                    </div>
+                <?php endif ?>
                 <table>
                     <thead>
                         <th>Date</th>
@@ -27,6 +35,7 @@ include 'includes/action.php';
                     <?php
                         // calling viewMethod() method
                         $myrow = $birdsMortalityObject->viewMethod("BirdsMortality");
+                        $i = 0;
                         foreach($myrow as $row){
                             // breaking point
                             ?>
@@ -34,14 +43,17 @@ include 'includes/action.php';
                                 <td><?php echo $row['Date'];?></td>
                                 <td><?php echo $row['Deaths'];?></td>
                                 <td>
+                            
                                     <a class="edit_btn" href="birdsMortality.php?birdsmortupdate=1&id=<?php echo $row["BirdsMortality_ID"]; ?>">Edit</a>
+                                    
                                 </td>
                                 <td>
-                                    <a class="del_btn" href="includes/action.php?birdsmortdelete=1&id=<?php echo $row["BirdsMortality_ID"]; ?>">Delete</a>
+                                <a class="del_btn" href="includes/action.php?birdsmortdelete=1&id=<?php echo $row["BirdsMortality_ID"]; ?>">Delete</a>                    
                                 </td>
                             </tr>
                             <?php
-                        }
+                            
+                        } 
                     ?>
                     </tbody>
                 </table>

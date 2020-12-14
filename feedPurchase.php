@@ -62,15 +62,15 @@ include 'includes/action.php';
                                 </div>
                                 <div class="input-group">
                                     <label for="">Date</label>
-                                    <input type="date" name="Date" value="<?php echo $row["Date"]; ?>">
+                                    <input type="date" name="Date" value="<?php echo $row["Date"]; ?>" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="">Quantity</label>
-                                    <input type="number" step="any" name="Quantity" value="<?php echo $row["Quantity"]; ?>">
+                                    <input type="number" step="any" name="Quantity" value="<?php echo $row["Quantity"]; ?>" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="">Price</label>
-                                    <input type="number" step="any" name="Price" value="<?php echo $row["Price"]; ?>">
+                                    <input type="number" step="any" name="Price" value="<?php echo $row["Price"]; ?>" required>
                                 </div>
                                 <div class="input-group">
                                     <button type="submit" name="feedpurchedit" class="btn" value="">Update</button>
@@ -82,15 +82,15 @@ include 'includes/action.php';
                             <form action="includes/action.php" method="post">
                                 <div class="input-group">
                                     <label for="">Date</label>
-                                    <input type="date" name="Date" value="">
+                                    <input type="date" name="Date" value="" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="">Quantity</label>
-                                    <input type="number" step="any" name="Quantity" value="">
+                                    <input type="number" step="any" name="Quantity" value="" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="">Price</label>
-                                    <input type="number" step="any" name="Price" value="">
+                                    <input type="number" step="any" name="Price" value="" required>
                                 </div>
                                 <div class="input-group">
                                     <button type="submit" name="feedpurchsave" class="btn">Save</button>

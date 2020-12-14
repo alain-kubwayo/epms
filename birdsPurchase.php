@@ -62,15 +62,15 @@ include 'includes/action.php';
                                 </div>
                                 <div class="input-group">
                                     <label for="">Date</label>
-                                    <input type="date" name="Date" value="<?php echo $row["Date"]; ?>">
+                                    <input id="BPDate" type="date" name="Date" value="<?php echo $row["Date"]; ?>" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="">Number of Birds</label>
-                                    <input type="number" step="any" name="NumberOfBirds" value="<?php echo $row["NumberOfBirds"]; ?>">
+                                    <input type="number" step="any" name="NumberOfBirds" value="<?php echo $row["NumberOfBirds"]; ?>" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="">Price</label>
-                                    <input type="number" step="any" name="Price" value="<?php echo $row["Price"]; ?>">
+                                    <input type="number" step="any" name="Price" value="<?php echo $row["Price"]; ?>" required>
                                 </div>
                                 <div class="input-group">
                                     <button type="submit" name="birdspurchedit" class="btn" value="">Update</button>
@@ -78,19 +78,19 @@ include 'includes/action.php';
                             </form>
                         <?php
                     }else{
-                        ?>
+                        ?>  
                             <form action="includes/action.php" method="post">
                                 <div class="input-group">
                                     <label for="">Date</label>
-                                    <input type="date" name="Date" value="">
+                                    <input id="BPDate" type="date" name="Date" value="" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="">Number of Birds</label>
-                                    <input type="number" step="any" name="NumberOfBirds" value="">
+                                    <input type="number" step="any" name="NumberOfBirds" value="" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="">Price</label>
-                                    <input type="number" step="any" name="Price" value="">
+                                    <input type="number" step="any" name="Price" value="" required>
                                 </div>
                                 <div class="input-group">
                                     <button type="submit" name="birdspurchsave" class="btn">Save</button>

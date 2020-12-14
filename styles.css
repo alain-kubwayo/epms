@@ -518,6 +518,24 @@
     height: 500px;
   }
 
+  /** STYLING DIV CONTAINING ERRORS */
+
+  .my-div-error{
+    color: #e65061;
+  }
+
+  
+  .msg{
+    margin: 30px auto;
+    padding: 10px;
+    border-radius: 5px;
+    color: #3c763d;
+    background: #dff0d8;
+    border: 1px solid #3c763d;
+    width: 50%;
+    text-align: center;
+  }
+
 
   @media only screen and (max-width: 855px) {
     .main__cards {

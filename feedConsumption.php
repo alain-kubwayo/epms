@@ -74,19 +74,19 @@ include 'includes/action.php';
                                 </div>
                                 <div class="input-group">
                                     <label for="">Date</label>
-                                    <input type="date" name="ConsDate" value="<?php echo $row["ConsDate"]; ?>">
+                                    <input type="date" name="ConsDate" value="<?php echo $row["ConsDate"]; ?>" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="">Quantity</label>
-                                    <input type="number" step="any" name="Quantity" value="<?php echo $row["Quantity"]; ?>">
+                                    <input type="number" step="any" name="Quantity" value="<?php echo $row["Quantity"]; ?>" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="">Price</label>
-                                    <input type="number" step="any" name="Price" value="<?php echo $row["Price"]; ?>">
+                                    <input type="number" step="any" name="Price" value="<?php echo $row["Price"]; ?>" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="">Employee Assigned</label>
-                                        <select name="Employee" id="">
+                                        <select name="Employee" id="" required>
                                         <?php
                                             $myrow = $employeeObject->viewMethod("Employee");
                                             foreach($myrow as $row){
@@ -108,21 +108,21 @@ include 'includes/action.php';
                             <form action="includes/action.php" method="post">
                                 <div class="input-group">
                                     <label for="">Date</label>
-                                    <input type="date" name="ConsDate" value="">
+                                    <input type="date" name="ConsDate" value="" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="">Quantity</label>
-                                    <input type="number" step="any" name="Quantity" value="">
+                                    <input type="number" step="any" name="Quantity" value="" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="">Price</label>
-                                    <input type="number" step="any" name="Price" value="">
+                                    <input type="number" step="any" name="Price" value="" required>
                                 </div>
                                 <div class="input-group">
                                     <!-- <label for="">Employee Assigned</label>
                                     <input type="text" name="Employee" value=""> -->
                                     <label for="">Employee Assigned</label>
-                                    <select name="Employee" id="">
+                                    <select name="Employee" id="" required>
                                     <?php
                                         $myrow = $feedConsumptionObject->viewMethod("Employee");
                                         foreach($myrow as $row){

@@ -154,7 +154,7 @@
             "Employee" => $_POST["Employee"]
         );
         if($feedConsumptionObject->updateMethod("FeedConsumption", $where, $myArray)){
-            // header("location: ../feedConsumption.php?msg=Updated Successfully!");
+            header("location: ../feedConsumption.php?msg=Updated Successfully!");
         }
     }
     // Check if delete button was triggered
@@ -259,7 +259,8 @@
         );
         // Call the insertion method to add record to the database
         if($birdsMortalityObject->insertionMethod("BirdsMortality", $myArray)){
-            header("location: ../birdsMortality.php?msg=Insertion was successfull!");
+            $_SESSION['msg'] = "Added new record!";
+            header("location: ../birdsMortality.php");
         };
     }
     // Handle the edit button for record editing

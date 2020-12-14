@@ -6,6 +6,7 @@ if (!isset($_SESSION['Username'])) {
 }
 include 'includes/database.php';
 include 'includes/action.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,11 +61,11 @@ include 'includes/action.php';
                                 </div>
                                 <div class="input-group">
                                     <label for="">Date</label>
-                                    <input type="date" name="Date" value="<?php echo $row["Date"]; ?>">
+                                    <input type="date" name="Date" value="<?php echo $row["Date"]; ?>" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="">Number of Eggs</label>
-                                    <input type="number" step="any" name="NumberOfEggs" value="<?php echo $row["NumberOfEggs"]; ?>">
+                                    <input type="number" step="any" name="NumberOfEggs" value="<?php echo $row["NumberOfEggs"]; ?>" required>
                                 </div>
                                 <div class="input-group">
                                     <button type="submit" name="productionedit" class="btn" value="">Update</button>
@@ -76,11 +77,11 @@ include 'includes/action.php';
                             <form action="includes/action.php" method="post">
                                 <div class="input-group">
                                     <label for="">Date</label>
-                                    <input type="date" name="Date" value="">
+                                    <input type="date" name="Date" value="" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="">Number of Eggs</label>
-                                    <input type="number" step="any" name="NumberOfEggs" value="">
+                                    <input type="number" step="any" name="NumberOfEggs" value="" required>
                                 </div>
                                 <div class="input-group">
                                     <button type="submit" name="productionsave" class="btn">Save</button>
