@@ -14,6 +14,7 @@ This web application was also deployed on on the popular public cloud computing 
 2. CSS
 4. JavaScript
 5. PHP
+6. MySQL
 
 ## Implemented Functionalities
 
