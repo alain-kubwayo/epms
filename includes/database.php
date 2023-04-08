@@ -11,7 +11,7 @@ class Database{
     public function connect(){
         $this->servername = 'localhost';
         $this->username = 'root';
-        $this->password = '';
+        $this->password = 'root';
         $this->dbname = 'epms_db';
  
         $conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
