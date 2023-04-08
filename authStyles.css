@@ -13,7 +13,7 @@ body{
     background-size: cover;
 }
 
-.login__container{
+.auth__container{
     width: 100%;
     max-width: 400px;
     padding: 20px;
@@ -21,7 +21,7 @@ body{
     border-radius: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
 }
 
-.login__container input{
+.auth__container input{
     display: block;
     width: 100%;
     background: rgba(240, 240, 240, .5);
@@ -35,7 +35,7 @@ body{
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
 }
 
-.login__container button{
+.auth__container button{
     display: block;
     width: 100%;
     background: #3ea175;
@@ -49,12 +49,12 @@ body{
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
 }
 
-.login__container button:hover{
+.auth__container button:hover{
     opacity: .8;
     cursor: pointer;
 }
 
-.login__container h1{
+.auth__container h1{
     color:  #555;
     margin: 10px auto;
     opacity: .7;
