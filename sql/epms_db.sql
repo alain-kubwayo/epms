@@ -181,7 +181,7 @@ INSERT INTO `Sales` (`Sales_ID`, `Date`, `NumberOfEggs`, `Revenue`) VALUES
 --
 
 CREATE TABLE `User` (
-  `User_ID` int(11) NOT NULL,
+  `User_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Username` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
