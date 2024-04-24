@@ -10,11 +10,17 @@ EPMS is a management system developed for a startup poultry farm business called
 * Sales (keeping track of sales record)
 
 ## Technologies Used
+
 1. HTML
 2. CSS
 4. JavaScript
 5. PHP
 6. MySQL
+
+## YouTube Demo
+[Watch the demo on YouTube](https://www.youtube.com/watch?v=ZljZxN1Op9I&t=78s)
+
+
 
 ## Implemented Functionalities
 
