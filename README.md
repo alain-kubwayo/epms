@@ -18,7 +18,7 @@ EPMS is a management system developed for a startup poultry farm business called
 6. MySQL
 
 ## YouTube Demo
-[Watch the demo on YouTube](https://www.youtube.com/watch?v=ZljZxN1Op9I&t=78s)
+Watch the demo on [YouTube](https://www.youtube.com/watch?v=ZljZxN1Op9I&t=78s)
 
 
 
